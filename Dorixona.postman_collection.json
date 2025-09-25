@@ -10,7 +10,7 @@
 			"name": "Medicine-type",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "post",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -38,7 +38,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "git",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -64,7 +64,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "git id",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -76,7 +76,7 @@
 							"raw": "{\n    \"name\": \"Sitramon\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3333/api/medicine_type/1",
+							"raw": "localhost:3333/api/medicine_type/2",
 							"host": [
 								"localhost"
 							],
@@ -84,14 +84,14 @@
 							"path": [
 								"api",
 								"medicine_type",
-								"1"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "patch",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -120,7 +120,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -129,7 +129,7 @@
 							"raw": "{\n    \"name\": \"ACC\"\n}"
 						},
 						"url": {
-							"raw": "localhost:3333/api/medicine_type/2",
+							"raw": "localhost:3333/api/medicine_type/1",
 							"host": [
 								"localhost"
 							],
@@ -137,7 +137,7 @@
 							"path": [
 								"api",
 								"medicine_type",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -155,7 +155,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Coldrex\",\n  \"manufacturer\": \"GSK\",\n  \"medicine_type_id\": 1,\n  \"price\": 18000,\n  \"expiry_date\": \"2026-08-01\",\n  \"info\": \"Shamollash va gripp alomatlarini kamaytiradi\"\n}\n",
+							"raw": "{\n  \"name\": \"Coldrex\",\n  \"manufacturer\": \"GSK\",\n  \"medicine_type_id\": 2,\n  \"price\": 18000,\n  \"expiry_date\": \"2026-08-01\",\n  \"info\": \"Shamollash va gripp alomatlarini kamaytiradi\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,9 +178,27 @@
 				},
 				{
 					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sitramon\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/api/medicies",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"medicies"
+							]
+						}
 					},
 					"response": []
 				},
@@ -525,6 +543,249 @@
 								"1"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "phormacies",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Salomatlik Dorixona\",\n    \"address\": \"Toshkent shahar, Chilonzor tumani, Bog‘bon ko‘chasi, 13-uy\",\n    \"location\": \"41.2995, 69.2401\",\n    \"phone\": \"+998901234568\",\n    \"email\": \"inff@salomatlikdorixona.uz\",\n    \"region_id\": 1,\n    \"district_id\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/pharmacies",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"pharmacies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "git",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Salomatlik Dorixona\",\n    \"address\": \"Toshkent shahar, Chilonzor tumani, Bog‘bon ko‘chasi, 12-uy\",\n    \"location\": \"41.2995, 69.2401\",\n    \"phone\": \"+998901234567\",\n    \"email\": \"info@salomatlikdorixona.uz\",\n    \"region_id\": 1,\n    \"district_id\": 2\n}\n"
+						},
+						"url": {
+							"raw": "localhost:3333/api/pharmacies",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"pharmacies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "git id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Salomatlik Dorixona\",\n    \"address\": \"Toshkent shahar, Chilonzor tumani, Bog‘bon ko‘chasi, 12-uy\",\n    \"location\": \"41.2995, 69.2401\",\n    \"phone\": \"+998901234567\",\n    \"email\": \"info@salomatlikdorixona.uz\",\n    \"region_id\": 1,\n    \"district_id\": 2\n}\n"
+						},
+						"url": {
+							"raw": "localhost:3333/api/pharmacies/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"pharmacies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Salomatlik Dorixona\",\n    \"address\": \"Toshkent shahar, Chilonzor tumani, Bog‘bon ko‘chasi, 12-uy\",\n    \"location\": \"41.2995, 69.2401\",\n    \"phone\": \"+998901234567\",\n    \"email\": \"info@salomatlikdorixona.uz\",\n    \"region_id\": 1,\n    \"district_id\": 2\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/pharmacies/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"pharmacies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Salomatlik Dorixona\",\n    \"address\": \"Toshkent shahar, Chilonzor tumani, Bog‘bon ko‘chasi, 12-uy\",\n    \"location\": \"41.2995, 69.2401\",\n    \"phone\": \"+998901234567\",\n    \"email\": \"info@salomatlikdorixona.uz\",\n    \"region_id\": 1,\n    \"district_id\": 2\n}\n"
+						},
+						"url": {
+							"raw": "localhost:3333/api/pharmacies/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"pharmacies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stock",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pharmacy_id\": 1,\n  \"medicine_id\": 1,\n  \"quantity\": 1234\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pharmacy_id\": 2,\n  \"medicine_id\": 2,\n  \"quantity\": 1234\n}\n"
+						},
+						"url": {
+							"raw": "localhost:3333/api/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pharmacy_id\": 3,\n  \"medicine_id\": 2,\n  \"quantity\": 1234\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/stock/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"stock",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
