@@ -36,7 +36,7 @@ export class DistrictService {
   }
 
   async findAll(): Promise<IResponse> {
-    const district = await this.districtModel.findAll({ include: { all: true } })
+    const district = await this.districtModel.findAll({ include: { all: true }, order: [['id', 'ASC']] })
     return getSuccessRes(district);
   }
 

@@ -24,7 +24,7 @@ export class RegionService {
   }
 
   async findAll(): Promise<IResponse> {
-    const region = await this.regionModel.findAll({ include: { all: true } })
+    const region = await this.regionModel.findAll({ include: { all: true }, order: [['id', 'ASC']] })
     return getSuccessRes(region);
   }
 

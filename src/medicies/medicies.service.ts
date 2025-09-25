@@ -1,4 +1,4 @@
-import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMedicyDto } from './dto/create-medicy.dto';
 import { UpdateMedicyDto } from './dto/update-medicy.dto';
 import { InjectModel } from '@nestjs/sequelize';
@@ -31,7 +31,7 @@ export class MediciesService {
   }
 
   async findAll(): Promise<IResponse> {
-    const medicies = await this.mediciesModel.findAll({ include: { all: true } })
+    const medicies = await this.mediciesModel.findAll({ include: { all: true }, order: [['id', 'ASC']] })
     return getSuccessRes(medicies)
   }
 

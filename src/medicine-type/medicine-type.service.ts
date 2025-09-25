@@ -24,7 +24,7 @@ export class MedicineTypeService {
   }
 
   async findAll(): Promise<IResponse> {
-    const medicine_type = await this.medicineTypeModel.findAll({ include: { all: true } })
+    const medicine_type = await this.medicineTypeModel.findAll({ include: { all: true }, order: [['id', 'ASC']] })
     return getSuccessRes(medicine_type);
   }
 

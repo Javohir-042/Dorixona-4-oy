@@ -6,11 +6,20 @@ interface IStock{
     id?: number;
     pharmacy_id: number;
     medicine_id: number;
-    quantity: string;
+    quantity: number;
 }
 
 @Table({ tableName: 'stock'})
 export class Stock extends Model<IStock>{
+
+    @Column({
+        type: DataType.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    })
+    declare id: number;
+
+
     @ForeignKey(() => Pharmacies)
     @Column({
         type: DataType.INTEGER,
@@ -34,8 +43,8 @@ export class Stock extends Model<IStock>{
 
 
     @Column({
-        type: DataType.STRING,
+        type: DataType.INTEGER,
         allowNull: false
     })
-    declare quantity: string;
+    declare quantity: number;
 }

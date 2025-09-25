@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, Min } from "class-validator";
 
 export class CreateStockDto {
     @IsNumber()
@@ -9,7 +9,8 @@ export class CreateStockDto {
     @IsNotEmpty()
     medicine_id: number;
 
-    @IsString()
+    @IsNumber()
+    @Min(1)
     @IsNotEmpty()
-    quantity: string;
+    quantity: number;
 }

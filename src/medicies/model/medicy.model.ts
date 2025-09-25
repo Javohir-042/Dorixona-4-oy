@@ -1,6 +1,7 @@
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { MedicineType } from "../../medicine-type/model/medicine-type.model";
 import { Stock } from "../../stock/model/stock.model";
+import { Pharmacies } from "../../pharmacies/model/pharmacy.model";
 
 interface IMedicies {
     id?: number;
@@ -58,4 +59,7 @@ export class Medicies extends Model<IMedicies> {
 
     @HasMany(() => Stock)
     declare stock: Stock[];
+
+    @BelongsToMany(() => Pharmacies, () => Stock)
+    pharmacies: Pharmacies[];
 }
