@@ -68,7 +68,7 @@ export class DistrictService {
 
   async remove(id: number): Promise<IResponse> {
     const district = await this.districtModel.destroy({ where: { id } })
-    if(!district){
+    if (!district) {
       throw new NotFoundException("District not found")
     }
 

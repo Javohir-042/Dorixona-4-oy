@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { MedicineTypeModule } from './medicine-type/medicine-type.module';
 import { MediciesModule } from './medicies/medicies.module';
 import { StockModule } from './stock/stock.module';
 import { DistrictModule } from './district/district.module';
@@ -11,8 +10,12 @@ import { Region } from './region/model/region.model';
 import { Pharmacies } from './pharmacies/model/pharmacy.model';
 import { District } from './district/model/district.model';
 import { Stock } from './stock/model/stock.model';
-import { MedicineType } from './medicine-type/model/medicine-type.model';
 import { Medicies } from './medicies/model/medicy.model';
+import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
+import { Admin } from './admin/model/admin.model';
+import { MedicineType } from './medicine-type/model/medicine-type.model';
+import { MedicineTypeModule } from './medicine-type/medicine-type.module';
 
 @Module({
   imports: [
@@ -30,8 +33,11 @@ import { Medicies } from './medicies/model/medicy.model';
       logging: false,
       synchronize: true,
       autoLoadModels: true,
-      models: [Medicies, MedicineType, Stock, District, Pharmacies, Region],
+      models: [Medicies, MedicineType, Stock, District, Pharmacies, Region, Admin],
     }),
+
+    AdminModule,
+    AuthModule,
     MedicineTypeModule,
     MediciesModule,
     StockModule,
@@ -42,4 +48,4 @@ import { Medicies } from './medicies/model/medicy.model';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }

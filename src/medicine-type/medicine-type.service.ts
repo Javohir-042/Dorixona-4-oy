@@ -53,7 +53,7 @@ export class MedicineTypeService {
 
   async remove(id: number): Promise<IResponse> {
     const medicine_type = await this.medicineTypeModel.destroy({ where: { id } })
-    if(!medicine_type){
+    if (!medicine_type) {
       throw new NotFoundException("Medicine_type not found")
     }
 

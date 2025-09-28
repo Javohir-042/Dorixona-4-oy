@@ -7,7 +7,6 @@ import { Region } from '../region/model/region.model';
 import { District } from '../district/model/district.model';
 import { IResponse } from '../interfaces/success-responst';
 import { getSuccessRes } from '../utils/getSuccessResponst';
-
 @Injectable()
 export class PharmaciesService {
   constructor(
@@ -96,8 +95,8 @@ export class PharmaciesService {
       }
     }
 
-    const region_ID = await this.regionModel.findByPk(region_id )
-    if(!region_ID){
+    const region_ID = await this.regionModel.findByPk(region_id)
+    if (!region_ID) {
       throw new NotFoundException('Bunday Region_id topilmadi')
     }
 

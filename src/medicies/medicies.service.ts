@@ -4,8 +4,8 @@ import { UpdateMedicyDto } from './dto/update-medicy.dto';
 import { InjectModel } from '@nestjs/sequelize';
 import { Medicies } from './model/medicy.model';
 import { IResponse } from '../interfaces/success-responst';
-import { getSuccessRes } from '../utils/getSuccessResponst';
 import { MedicineType } from '../medicine-type/model/medicine-type.model';
+import { getSuccessRes } from '../utils/getSuccessResponst';
 
 @Injectable()
 export class MediciesService {
@@ -63,8 +63,8 @@ export class MediciesService {
   }
 
   async remove(id: number): Promise<IResponse> {
-    const medicies = await this.mediciesModel.destroy({ where: { id }})
-    if(!medicies){
+    const medicies = await this.mediciesModel.destroy({ where: { id } })
+    if (!medicies) {
       throw new NotFoundException("medicies not found")
     }
 
