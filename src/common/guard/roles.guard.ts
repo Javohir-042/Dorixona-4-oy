@@ -13,7 +13,7 @@ export class RolesGuard implements CanActivate {
         const roles = this.reflector.getAllAndOverride<string[]> (ROLES_KEY, [
             ctx.getHandler(),
             ctx.getClass(),
-        ]);
+        ]).map(role => role.toUpperCase());
         
         if(!roles || roles.includes('public') || roles.length === 0) {
             return true;

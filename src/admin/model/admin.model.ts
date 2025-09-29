@@ -35,7 +35,6 @@ export class Admin extends Model<Admin, IAdminCreationAttr> {
     @Column({
         type: DataType.STRING,
         allowNull: true,
-        unique: true,
     })
     declare password: string;
 

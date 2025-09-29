@@ -35,7 +35,7 @@ export class CreateAdminDto {
     })
     @IsBoolean()
     @IsNotEmpty()
-    is_Active: boolean
+    is_Active: boolean;
 
     @ApiProperty({
         type: String,

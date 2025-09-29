@@ -24,14 +24,7 @@ export class AdminService {
       throw new BadRequestException("Bunday email mavjud")
     }
 
-    const existsPassword = await this.adminModel.findOne({ where: { password } })
-    if (existsPassword) {
-      throw new BadRequestException("Bunday password mavjud")
-    }
-
     const newAdmin = await this.adminModel.create({ ...createAdminDto })
-
-
 
     return getSuccessRes(newAdmin, 201)
   }

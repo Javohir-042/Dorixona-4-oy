@@ -13,35 +13,35 @@ import { RolesGuard } from '../common/guard/roles.guard';
 export class AdminController {
   constructor(private readonly adminService: AdminService) { }
 
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @Post()
   @ApiBearerAuth()
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.create(createAdminDto);
-  }
+  }  
 
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @Get()
   @ApiBearerAuth()
   findAll() {
     return this.adminService.findAll();
   }
 
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @Get(':id')
   @ApiBearerAuth()
   findOne(@Param('id') id: string) {
     return this.adminService.findOne(+id);
   }
 
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @Patch(':id')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() updateAdminDto: UpdateAdminDto) {
     return this.adminService.update(+id, updateAdminDto);
   }
 
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @Delete(':id')
   @ApiBearerAuth()
   remove(@Param('id') id: string) {

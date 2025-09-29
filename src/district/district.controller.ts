@@ -1,12 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { DistrictService } from './district.service';
 import { CreateDistrictDto } from './dto/create-district.dto';
 import { UpdateDistrictDto } from './dto/update-district.dto';
+import { RolesGuard } from '../common/guard/roles.guard';
+import { AuthGuard } from '../common/guard/auth.guard';
+import { Roles } from '../common/decorator/roles-decorator';
+import { Role } from '../common/enum/admin-enum';
 
+@UseGuards(AuthGuard, RolesGuard)
 @Controller('district')
 export class DistrictController {
   constructor(private readonly districtService: DistrictService) {}
 
+  @Roles(Role.SUPERADMIN)
   @Post()
   create(@Body() createDistrictDto: CreateDistrictDto) {
     return this.districtService.create(createDistrictDto);

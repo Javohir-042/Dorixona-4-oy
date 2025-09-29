@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsNotEmpty, IsString, IsStrongPassword, MinLength } from "class-validator";
+import { IsEmail, IsNotEmpty, IsStrongPassword } from "class-validator";
 
 export class SigninAdminDto {
     @ApiProperty({

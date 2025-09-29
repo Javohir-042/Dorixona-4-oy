@@ -23,12 +23,12 @@ export class AuthService {
 
         const existsEmail = await this.adminRepo.findOne({ where: { email } });
         if (existsEmail) {
-            throw new ConflictException('Bunday admin mavjud');
+            throw new ConflictException('Bunday email mavjud');
         }
 
         const hashedPassword = await bcrypt.hash(password, 7);
 
-        const newAdmin = await this.adminRepo.create({
+        await this.adminRepo.create({
             name,
             email,
             password: hashedPassword,
@@ -36,7 +36,9 @@ export class AuthService {
             role: createAdminDto.role
         });
 
-        return this.generateToken(newAdmin);
+        return {message:'success',
+            data: {name, email}
+        }
     }
 
     async signin(signinAdminDto: SigninAdminDto) {
